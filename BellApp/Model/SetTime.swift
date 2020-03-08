@@ -15,7 +15,7 @@ class SetTime {
     
     init(){
         
-        secondList = ["0", "10", "20", "30", "40", "50"]
+        secondList = ["00", "10", "20", "30", "40", "50"]
         
         for i in 0 ..< 60{
             minitueList.append(String(i))

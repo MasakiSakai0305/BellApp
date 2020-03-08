@@ -10,6 +10,7 @@
 		3A2BA5B2240CF26800DDAD20 /* timeCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2BA5B1240CF26800DDAD20 /* timeCount.swift */; };
 		3A2BA5E3240E448700DDAD20 /* SetTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2BA5E2240E448700DDAD20 /* SetTimerViewController.swift */; };
 		3A2BA5E5240E46C000DDAD20 /* SetTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2BA5E4240E46C000DDAD20 /* SetTime.swift */; };
+		3A9D12082414DE8C0063BDFC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D12072414DE8C0063BDFC /* README.md */; };
 		3AEAB43C240CC63C00A3E50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB43B240CC63C00A3E50F /* AppDelegate.swift */; };
 		3AEAB43E240CC63C00A3E50F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB43D240CC63C00A3E50F /* SceneDelegate.swift */; };
 		3AEAB440240CC63C00A3E50F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB43F240CC63C00A3E50F /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		3A2BA5B1240CF26800DDAD20 /* timeCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeCount.swift; sourceTree = "<group>"; };
 		3A2BA5E2240E448700DDAD20 /* SetTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
 		3A2BA5E4240E46C000DDAD20 /* SetTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTime.swift; sourceTree = "<group>"; };
+		3A9D12072414DE8C0063BDFC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3AEAB438240CC63C00A3E50F /* BellApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BellApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AEAB43B240CC63C00A3E50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AEAB43D240CC63C00A3E50F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		3AEAB42F240CC63C00A3E50F = {
 			isa = PBXGroup;
 			children = (
+				3A9D12072414DE8C0063BDFC /* README.md */,
 				3AEAB43A240CC63C00A3E50F /* BellApp */,
 				3AEAB439240CC63C00A3E50F /* Products */,
 			);
@@ -185,6 +188,7 @@
 				3AEAB450240CC77600A3E50F /* bellSound.mp3 in Resources */,
 				3AEAB45D240CD56A00A3E50F /* maruSound.mp3 in Resources */,
 				3AEAB448240CC64200A3E50F /* LaunchScreen.storyboard in Resources */,
+				3A9D12082414DE8C0063BDFC /* README.md in Resources */,
 				3AEAB445240CC64200A3E50F /* Assets.xcassets in Resources */,
 				3AEAB461240CE1C000A3E50F /* cutBellSound.mp3 in Resources */,
 				3AEAB443240CC63C00A3E50F /* Main.storyboard in Resources */,

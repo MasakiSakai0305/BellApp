@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol setTimeProtocol {
+    
+    func setTimerConfigue(numberOfRing:Int, Value:TimeCount)
+    
+}
+
 class SetTimerViewController: UIViewController, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     
@@ -17,12 +23,17 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
     
     var Time = SetTime()
     
+    var tc = TimeCount()
+    
+    var delegate:setTimeProtocol?
+    
+    var numberOfRing = Int()
+  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(Time.secondList)
-        print(Time.minitueList)
+        print("set\(numberOfRing)から呼ばれたよ！！")
         
         // PickerView のサイズと位置
         secondPickerView.frame = CGRect(x: 0, y: view.frame.height/4, width: view.frame.width/2, height: 300)
@@ -40,6 +51,8 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
         secondPickerView.dataSource = self
         minituePickerView.delegate = self
         minituePickerView.dataSource = self
+        
+        navigationController?.delegate = self
 
 
     }
@@ -68,8 +81,10 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
         
         switch pickerView.tag {
        case 0:
+        tc.second = Int(Time.secondList[row])!
         return Time.secondList[row]
        case 1:
+        tc.minitue = Int(Time.minitueList[row])!
         return Time.minitueList[row]
        default:
            return "error"
@@ -84,14 +99,31 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
         
         switch pickerView.tag {
            case 0:
-            print(Time.secondList[row])
+            tc.second = Int(Time.secondList[row])!
+            //print(Time.secondList[row])
            case 1:
-            print(Time.minitueList[row])
+            tc.minitue = Int(Time.minitueList[row])!
+            //print(Time.minitueList[row])
            default:
             print("error")
         }
         
         
+    }
+    
+    //前の画面に戻るとき,textviewの中身をメモに格納
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+        //前の画面に戻るとき
+        if viewController is addBellViewController {
+            print("前の画面に戻るよ!")
+            
+            print(tc.minitue, tc.second)
+            
+            //このタイミングでdelegateメソッドを使う
+            delegate?.setTimerConfigue(numberOfRing:numberOfRing, Value:tc)
+            
+        }
     }
     
 }

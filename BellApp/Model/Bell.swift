@@ -14,14 +14,22 @@ class Bell{
    // var player:AVAudioPlayer?
 //    var withoutMP3 = WithoutMP3()
 //    var soundFile = SoundFile()
-
-    var bellConfigueDict: Dictionary<String, Int>
     
-    init(bellDict: Dictionary<String, Int>){
+    // <ベルがなる回数:ベルが鳴る時間>
+    var bellConfigueDict: Dictionary<Int, TimeCount> = [:]
+    
+    //Dict初期化
+    init(){
         
-        bellConfigueDict = bellDict
+        bellConfigueDict[1] = TimeCount()
+        bellConfigueDict[2] = TimeCount()
+        bellConfigueDict[3] = TimeCount()
         
-        print("making initilizer of bell")
+    }
+    
+    func setConfifueDict(numberOfRing:Int, Value:TimeCount){
+        
+        bellConfigueDict[numberOfRing] = Value
         
     }
     
