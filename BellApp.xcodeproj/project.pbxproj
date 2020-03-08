@@ -61,6 +61,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A9D1209241508E50063BDFC /* SoundFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3AEAB44F240CC77600A3E50F /* bellSound.mp3 */,
+				3AEAB460240CE1C000A3E50F /* cutBellSound.mp3 */,
+				3AEAB45C240CD56900A3E50F /* maruSound.mp3 */,
+			);
+			path = SoundFiles;
+			sourceTree = "<group>";
+		};
 		3AEAB42F240CC63C00A3E50F = {
 			isa = PBXGroup;
 			children = (
@@ -86,9 +96,7 @@
 				3AEAB451240CC8D600A3E50F /* Controller */,
 				3AEAB446240CC64200A3E50F /* LaunchScreen.storyboard */,
 				3AEAB449240CC64200A3E50F /* Info.plist */,
-				3AEAB44F240CC77600A3E50F /* bellSound.mp3 */,
-				3AEAB460240CE1C000A3E50F /* cutBellSound.mp3 */,
-				3AEAB45C240CD56900A3E50F /* maruSound.mp3 */,
+				3A9D1209241508E50063BDFC /* SoundFiles */,
 			);
 			path = BellApp;
 			sourceTree = "<group>";
