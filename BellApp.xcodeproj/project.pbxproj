@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A2BA5B2240CF26800DDAD20 /* timeCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2BA5B1240CF26800DDAD20 /* timeCount.swift */; };
+		3A2BA5E3240E448700DDAD20 /* SetTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2BA5E2240E448700DDAD20 /* SetTimerViewController.swift */; };
+		3A2BA5E5240E46C000DDAD20 /* SetTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2BA5E4240E46C000DDAD20 /* SetTime.swift */; };
+		3AEAB43C240CC63C00A3E50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB43B240CC63C00A3E50F /* AppDelegate.swift */; };
+		3AEAB43E240CC63C00A3E50F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB43D240CC63C00A3E50F /* SceneDelegate.swift */; };
+		3AEAB440240CC63C00A3E50F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB43F240CC63C00A3E50F /* ViewController.swift */; };
+		3AEAB443240CC63C00A3E50F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAB441240CC63C00A3E50F /* Main.storyboard */; };
+		3AEAB445240CC64200A3E50F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAB444240CC64200A3E50F /* Assets.xcassets */; };
+		3AEAB448240CC64200A3E50F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAB446240CC64200A3E50F /* LaunchScreen.storyboard */; };
+		3AEAB450240CC77600A3E50F /* bellSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAB44F240CC77600A3E50F /* bellSound.mp3 */; };
+		3AEAB455240CC94900A3E50F /* addBellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB454240CC94900A3E50F /* addBellViewController.swift */; };
+		3AEAB457240CC96800A3E50F /* bellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB456240CC96800A3E50F /* bellViewController.swift */; };
+		3AEAB459240CCB3200A3E50F /* Bell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB458240CCB3200A3E50F /* Bell.swift */; };
+		3AEAB45B240CD49700A3E50F /* withoutMP3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB45A240CD49700A3E50F /* withoutMP3.swift */; };
+		3AEAB45D240CD56A00A3E50F /* maruSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAB45C240CD56900A3E50F /* maruSound.mp3 */; };
+		3AEAB45F240CD60600A3E50F /* soundFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB45E240CD60600A3E50F /* soundFile.swift */; };
+		3AEAB461240CE1C000A3E50F /* cutBellSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AEAB460240CE1C000A3E50F /* cutBellSound.mp3 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A2BA5B1240CF26800DDAD20 /* timeCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeCount.swift; sourceTree = "<group>"; };
+		3A2BA5E2240E448700DDAD20 /* SetTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
+		3A2BA5E4240E46C000DDAD20 /* SetTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTime.swift; sourceTree = "<group>"; };
+		3AEAB438240CC63C00A3E50F /* BellApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BellApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AEAB43B240CC63C00A3E50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3AEAB43D240CC63C00A3E50F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3AEAB43F240CC63C00A3E50F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3AEAB442240CC63C00A3E50F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3AEAB444240CC64200A3E50F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AEAB447240CC64200A3E50F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3AEAB449240CC64200A3E50F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AEAB44F240CC77600A3E50F /* bellSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bellSound.mp3; sourceTree = "<group>"; };
+		3AEAB454240CC94900A3E50F /* addBellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBellViewController.swift; sourceTree = "<group>"; };
+		3AEAB456240CC96800A3E50F /* bellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bellViewController.swift; sourceTree = "<group>"; };
+		3AEAB458240CCB3200A3E50F /* Bell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bell.swift; sourceTree = "<group>"; };
+		3AEAB45A240CD49700A3E50F /* withoutMP3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withoutMP3.swift; sourceTree = "<group>"; };
+		3AEAB45C240CD56900A3E50F /* maruSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = maruSound.mp3; sourceTree = "<group>"; };
+		3AEAB45E240CD60600A3E50F /* soundFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soundFile.swift; sourceTree = "<group>"; };
+		3AEAB460240CE1C000A3E50F /* cutBellSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cutBellSound.mp3; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AEAB435240CC63C00A3E50F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AEAB42F240CC63C00A3E50F = {
+			isa = PBXGroup;
+			children = (
+				3AEAB43A240CC63C00A3E50F /* BellApp */,
+				3AEAB439240CC63C00A3E50F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3AEAB439240CC63C00A3E50F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AEAB438240CC63C00A3E50F /* BellApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AEAB43A240CC63C00A3E50F /* BellApp */ = {
+			isa = PBXGroup;
+			children = (
+				3AEAB453240CC8F400A3E50F /* Model */,
+				3AEAB452240CC8E500A3E50F /* View */,
+				3AEAB451240CC8D600A3E50F /* Controller */,
+				3AEAB446240CC64200A3E50F /* LaunchScreen.storyboard */,
+				3AEAB449240CC64200A3E50F /* Info.plist */,
+				3AEAB44F240CC77600A3E50F /* bellSound.mp3 */,
+				3AEAB460240CE1C000A3E50F /* cutBellSound.mp3 */,
+				3AEAB45C240CD56900A3E50F /* maruSound.mp3 */,
+			);
+			path = BellApp;
+			sourceTree = "<group>";
+		};
+		3AEAB451240CC8D600A3E50F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3AEAB43B240CC63C00A3E50F /* AppDelegate.swift */,
+				3AEAB43D240CC63C00A3E50F /* SceneDelegate.swift */,
+				3AEAB43F240CC63C00A3E50F /* ViewController.swift */,
+				3AEAB454240CC94900A3E50F /* addBellViewController.swift */,
+				3AEAB456240CC96800A3E50F /* bellViewController.swift */,
+				3A2BA5E2240E448700DDAD20 /* SetTimerViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3AEAB452240CC8E500A3E50F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3AEAB441240CC63C00A3E50F /* Main.storyboard */,
+				3AEAB444240CC64200A3E50F /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3AEAB453240CC8F400A3E50F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3AEAB458240CCB3200A3E50F /* Bell.swift */,
+				3AEAB45A240CD49700A3E50F /* withoutMP3.swift */,
+				3AEAB45E240CD60600A3E50F /* soundFile.swift */,
+				3A2BA5B1240CF26800DDAD20 /* timeCount.swift */,
+				3A2BA5E4240E46C000DDAD20 /* SetTime.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AEAB437240CC63C00A3E50F /* BellApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AEAB44C240CC64200A3E50F /* Build configuration list for PBXNativeTarget "BellApp" */;
+			buildPhases = (
+				3AEAB434240CC63C00A3E50F /* Sources */,
+				3AEAB435240CC63C00A3E50F /* Frameworks */,
+				3AEAB436240CC63C00A3E50F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BellApp;
+			productName = BellApp;
+			productReference = 3AEAB438240CC63C00A3E50F /* BellApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3AEAB430240CC63C00A3E50F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Masaki Sakai";
+				TargetAttributes = {
+					3AEAB437240CC63C00A3E50F = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 3AEAB433240CC63C00A3E50F /* Build configuration list for PBXProject "BellApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3AEAB42F240CC63C00A3E50F;
+			productRefGroup = 3AEAB439240CC63C00A3E50F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AEAB437240CC63C00A3E50F /* BellApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AEAB436240CC63C00A3E50F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AEAB450240CC77600A3E50F /* bellSound.mp3 in Resources */,
+				3AEAB45D240CD56A00A3E50F /* maruSound.mp3 in Resources */,
+				3AEAB448240CC64200A3E50F /* LaunchScreen.storyboard in Resources */,
+				3AEAB445240CC64200A3E50F /* Assets.xcassets in Resources */,
+				3AEAB461240CE1C000A3E50F /* cutBellSound.mp3 in Resources */,
+				3AEAB443240CC63C00A3E50F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AEAB434240CC63C00A3E50F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A2BA5B2240CF26800DDAD20 /* timeCount.swift in Sources */,
+				3AEAB440240CC63C00A3E50F /* ViewController.swift in Sources */,
+				3A2BA5E5240E46C000DDAD20 /* SetTime.swift in Sources */,
+				3AEAB455240CC94900A3E50F /* addBellViewController.swift in Sources */,
+				3AEAB43C240CC63C00A3E50F /* AppDelegate.swift in Sources */,
+				3AEAB45F240CD60600A3E50F /* soundFile.swift in Sources */,
+				3A2BA5E3240E448700DDAD20 /* SetTimerViewController.swift in Sources */,
+				3AEAB457240CC96800A3E50F /* bellViewController.swift in Sources */,
+				3AEAB459240CCB3200A3E50F /* Bell.swift in Sources */,
+				3AEAB43E240CC63C00A3E50F /* SceneDelegate.swift in Sources */,
+				3AEAB45B240CD49700A3E50F /* withoutMP3.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3AEAB441240CC63C00A3E50F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AEAB442240CC63C00A3E50F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3AEAB446240CC64200A3E50F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AEAB447240CC64200A3E50F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3AEAB44A240CC64200A3E50F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3AEAB44B240CC64200A3E50F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3AEAB44D240CC64200A3E50F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 36QH7628VZ;
+				INFOPLIST_FILE = BellApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.MasakiProduct.BellApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3AEAB44E240CC64200A3E50F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 36QH7628VZ;
+				INFOPLIST_FILE = BellApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.MasakiProduct.BellApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3AEAB433240CC63C00A3E50F /* Build configuration list for PBXProject "BellApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AEAB44A240CC64200A3E50F /* Debug */,
+				3AEAB44B240CC64200A3E50F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AEAB44C240CC64200A3E50F /* Build configuration list for PBXNativeTarget "BellApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AEAB44D240CC64200A3E50F /* Debug */,
+				3AEAB44E240CC64200A3E50F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3AEAB430240CC63C00A3E50F /* Project object */;
+}
