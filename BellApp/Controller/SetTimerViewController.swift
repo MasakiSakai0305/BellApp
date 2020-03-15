@@ -24,10 +24,14 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet weak var secondPickerView: UIPickerView!
     @IBOutlet weak var minituePickerView: UIPickerView!
     
+    //設定画面のタイトル(ベルを鳴らす回数)
+    @IBOutlet weak var titleLabel: UILabel!
     
     
     
     var tc = TimeCount()
+
+    
     
     var delegate:setTimeProtocol?
     
@@ -40,12 +44,12 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
         super.viewDidLoad()
         print("set\(numberOfRing)から呼ばれたよ！！")
         
-        
+        //view.backgroundColor = .black
         // PickerView のサイズと位置
-        secondPickerView.frame = CGRect(x: 0, y: view.frame.height/4, width: view.frame.width/2, height: 300)
+        secondPickerView.frame = CGRect(x: 0, y: view.frame.height/4, width: view.frame.width/2, height: 250)
         secondPickerView.backgroundColor = UIColor(red: 0.69, green: 0.93, blue: 0.9, alpha: 1.0)
         
-        minituePickerView.frame = CGRect(x: view.frame.width/2, y: view.frame.height/4, width: view.frame.width/2, height: 300)
+        minituePickerView.frame = CGRect(x: view.frame.width/2, y: view.frame.height/4, width: view.frame.width/2, height: 250)
         minituePickerView.backgroundColor = UIColor(red: 0.69, green: 0.93, blue: 0.9, alpha: 1.0)
         
         //タグ設定
@@ -60,7 +64,7 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
         
         navigationController?.delegate = self
         
-        
+        titleLabel.text = "ベルを鳴らす回数: \(numberOfRing)"
     
 
 
