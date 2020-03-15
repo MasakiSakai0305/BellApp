@@ -10,23 +10,28 @@ import UIKit
 
 protocol setTimeProtocol {
     
-    func setTimerConfigue(numberOfRing:Int, Value:TimeCount)
+    func setTimerConfigue(numberOfRing:Int, Value:String)
     
 }
 
 class SetTimerViewController: UIViewController, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     
+    //ピッカービュー表示用オブジェクト
+      var Time = SetTime()
+    
     //時間を設定する際のpickerView
     @IBOutlet weak var secondPickerView: UIPickerView!
     @IBOutlet weak var minituePickerView: UIPickerView!
     
-    var Time = SetTime()
+    
+    
     
     var tc = TimeCount()
     
     var delegate:setTimeProtocol?
     
+    //ベルを鳴らす回数
     var numberOfRing = Int()
   
     
@@ -34,6 +39,7 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("set\(numberOfRing)から呼ばれたよ！！")
+        
         
         // PickerView のサイズと位置
         secondPickerView.frame = CGRect(x: 0, y: view.frame.height/4, width: view.frame.width/2, height: 300)
@@ -53,6 +59,9 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
         minituePickerView.dataSource = self
         
         navigationController?.delegate = self
+        
+        
+    
 
 
     }
@@ -111,19 +120,52 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
         
     }
     
-    //前の画面に戻るとき,textviewの中身をメモに格納
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//    //前の画面に戻るとき,textviewの中身をメモに格納
+//    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//        print(viewController)
+//        print("navigationController from setTimer\n")
+//
+//        //前の画面に戻るとき
+//        if viewController is addBellViewController {
+//            print("setTime画面から前の画面に戻るよ!")
+//
+//            print(tc.minitue, tc.second)
+//            let timeString = String(tc.minitue) + String(tc.second)
+//
+//            //このタイミングでdelegateメソッドを使う
+//            delegate?.setTimerConfigue(numberOfRing:numberOfRing, Value:timeString)
+//
+//        }
+//    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("setTimerから戻るよ!! viewWillDisappear")
         
-        //前の画面に戻るとき
-        if viewController is addBellViewController {
-            print("前の画面に戻るよ!")
-            
-            print(tc.minitue, tc.second)
-            
-            //このタイミングでdelegateメソッドを使う
-            delegate?.setTimerConfigue(numberOfRing:numberOfRing, Value:tc)
-            
-        }
+        print(tc.minitue, tc.second)
+        let timeString = String(tc.minitue) + ":" + String(tc.second)
+
+        //このタイミングでdelegateメソッドを使う
+        //delegate?.setTimerConfigue(numberOfRing:numberOfRing, Value:timeString)
+        
+    }
+    
+    //時間設定, 画面遷移
+    @IBAction func doneAction(_ sender: Any) {
+        
+        print("setTimerから戻るよ!! from doneAction")
+        
+        print(tc.minitue, tc.second)
+        let timeString = String(tc.minitue) + ":" + String(tc.second)
+
+        //このタイミングでdelegateメソッドを使う
+        delegate?.setTimerConfigue(numberOfRing:numberOfRing, Value:timeString)
+        
+        //navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+        
+        
+        
     }
     
 }
+

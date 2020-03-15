@@ -39,21 +39,15 @@
                                     <action selector="bell:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GIv-wR-K2h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRe-Ya-VY8">
-                                <rect key="frame" x="28" y="544" width="281" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="picker 遷移"/>
-                                <connections>
-                                    <action selector="picker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vnl-QN-HKU"/>
-                                    <segue destination="cf5-yk-8SB" kind="show" identifier="pick" id="saB-VW-aMS"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="一覧" id="HVf-eg-6cA"/>
+                    <navigationItem key="navigationItem" title="一覧" id="HVf-eg-6cA">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="gQX-Ek-aLM"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="tableview" destination="56Q-LQ-azf" id="OCa-Ri-YNm"/>
                         <segue destination="cbB-5l-GPk" kind="show" identifier="" id="Sfw-N4-e1Q"/>
                         <segue destination="G7t-PG-pM5" kind="show" identifier="" id="Rc3-bA-0KU"/>
                     </connections>
@@ -89,6 +83,9 @@
                         <viewLayoutGuide key="safeArea" id="6DR-np-TYV"/>
                     </view>
                     <navigationItem key="navigationItem" id="tBK-yb-R56"/>
+                    <connections>
+                        <segue destination="4Cd-dP-AxU" kind="presentation" identifier="setTime" id="Iuo-t9-Ohh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nA-TS-FID" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,7 +103,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fd5-fC-2Ia"/>
                     <connections>
-                        <segue destination="4Cd-dP-AxU" kind="show" id="UDc-42-dc5"/>
+                        <segue destination="4Cd-dP-AxU" kind="presentation" identifier="setTime" id="8LB-44-AK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jzo-5D-QPI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -118,7 +115,7 @@
             <objects>
                 <viewController storyboardIdentifier="setTime" id="4Cd-dP-AxU" customClass="SetTimerViewController" customModule="BellApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OYQ-hX-FyP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4cX-JW-upD">
@@ -143,6 +140,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xz-WQ-smB">
+                                <rect key="frame" x="71" y="449" width="233" height="109"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.84175064030000002" blue="0.86362296299999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <state key="normal" title="決定">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneAction:" destination="4Cd-dP-AxU" eventType="touchUpInside" id="6HT-Zb-Ctp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xSR-MA-SM2"/>
@@ -155,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9F-n6-BId" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2805.5999999999999" y="-63.418290854572717"/>
+            <point key="canvasLocation" x="2796" y="-84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z6n-3x-uYu">
@@ -176,4 +185,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Iuo-t9-Ohh"/>
+    </inferredMetricsTieBreakers>
 </document>

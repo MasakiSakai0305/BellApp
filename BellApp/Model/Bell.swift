@@ -16,23 +16,37 @@ class Bell{
 //    var soundFile = SoundFile()
     
     // <ベルがなる回数:ベルが鳴る時間>
-    var bellConfigueDict: Dictionary<Int, TimeCount> = [:]
+    //var bellConfigueDict: Dictionary<Int, TimeCount> = [:]
+    var bellConfigueDict: Dictionary<String, String> = [:]
+    
     
     //Dict初期化
     init(){
         
-        bellConfigueDict[1] = TimeCount()
-        bellConfigueDict[2] = TimeCount()
-        bellConfigueDict[3] = TimeCount()
+//        bellConfigueDict[1] = TimeCount()
+//        bellConfigueDict[2] = TimeCount()
+//        bellConfigueDict[3] = TimeCount()
+        
+        bellConfigueDict["1"] = "0:00"
+        bellConfigueDict["2"] = "0:00"
+        bellConfigueDict["3"] = "0:00"
         
     }
     
-    func setConfifueDict(numberOfRing:Int, Value:TimeCount){
+    func setConfifueDict(numberOfRing:Int, Value:String){
         
-        bellConfigueDict[numberOfRing] = Value
+        bellConfigueDict[String(numberOfRing)] = Value
         
     }
     
+//    func encode(with aCoder: NSCoder) {
+//        aCoder.encode(self.bellConfigueDict, forKey: "cellArray")
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        self.bellConfigueDict = aDecoder.decodeObject(forKey: "cellArray") as! Dictionary
+//    }
+//
     
 //    func playSound(){
 //

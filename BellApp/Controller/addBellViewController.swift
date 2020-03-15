@@ -8,10 +8,22 @@
 
 import UIKit
 
+protocol saveBellProtocol {
+    
+    func updateBellTime()
+    
+}
+
 class addBellViewController: UIViewController, UINavigationControllerDelegate, setTimeProtocol {
+    
+    var delegate:saveBellProtocol?
     
     //ベルがなる時間を持つオブジェクト
     var bell = Bell()
+    
+    //ベルオブジェクト辞書を格納する配列
+    //var bellDictArray = [Dictionary<Int, String>]()
+    var bellDictArray = [Any]()
     
     //タイマー（時間表示用）
     let timeLabel = UILabel()
@@ -43,28 +55,29 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
     
     var tc = TimeCount()
     
-    //各セット時間(ベルが鳴る回数毎)のオブジェクト
-    var Time1 = TimeCount()
-    var Time2 = TimeCount()
-    var Time3 = TimeCount()
-    
     //サウンド関連
     var soundFile = SoundFile()
     var withoutMP3 = WithoutMP3()
     
     //タイマークラス
     var timer:Timer?
+    
+    //タイマーが起動しているかどうかのフラグ
+    var timerFlag = 0
+    
+    var bellNum = Int()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.delegate = self
 
+        
         countTime = TimeCount()
     
         
         self.view.backgroundColor = .white
-
         
         //timeラベル設定
         timeLabel.frame = CGRect(x: view.frame.size.width/4, y: view.frame.size.height/7, width: view.frame.size.width/2, height: view.frame.size.height/5) // 位置とサイズの指定
@@ -134,91 +147,68 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         self.view.addSubview(setTime1Button)
         self.view.addSubview(setTime2Button)
         self.view.addSubview(setTime3Button)
+        
+       
     
     }
     
-    
-    @objc func setTime1(){
-        
-        print("set1")
-        goTimer(numberOfRing:1)
-        
-    }
-    
-    @objc func setTime2(){
-        
-        print("set2")
-        goTimer(numberOfRing:2)
-        
-    }
-    
-    @objc func setTime3(){
-        
-        print("set3")
-        goTimer(numberOfRing:3)
-        
+    //前の画面に戻るとき,textviewの中身をメモに格納
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        print("navigationController from addbell")
+        print(viewController)
+        //前の画面に戻るとき
+        if viewController is ViewController {
+            print("addbellから前の画面に戻るよ\n")
+            //bellDictArray.append(bell.bellConfigueDict)
+            //bellArray.append(bell)
+            UserDefaults.standard.set(bell.bellConfigueDict, forKey: "bellDict\(bellNum)")
+            bellNum += 1
+            UserDefaults.standard.set(bellNum, forKey: "bellDictCount")
+            //UserDefaults.standard.set("tameshi", forKey: "tameshi")
+            delegate?.updateBellTime()
+            
+            
+        }
     }
 
+    
     
     @objc func start(time:TimeCount){
         
-        print("start")
-        
-        startButton.isEnabled = false
-        stopButton.isEnabled = true
-        
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePer1Second), userInfo: bell, repeats: true)
-
-        
+        if timerFlag == 0{
+            print("start")
+            
+//            startButton.isEnabled = false
+//            stopButton.isEnabled = true
+            
+            //設定した時間になったらベルを鳴らすために, userInfoで毎回bellを渡している
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePer1Second), userInfo: bell, repeats: true)
+            timerFlag = 1
+        }
     }
+    
     
     @objc func stop(){
         
-        print("stop")
-        
-        startButton.isEnabled = true
-        stopButton.isEnabled = false
-        
-        //タイマーオブジェクトを破棄
-        self.timer?.invalidate()
-
-        
-    }
-    
-    //タイマー更新(1秒ごと)
-    @objc func updatePer1Second(_ sender: Timer){
-        let b = sender.userInfo as! Bell
-        print(b.bellConfigueDict[1]!.minitue, b.bellConfigueDict[1]!.second)
-        
-        //60秒以内ならカウント
-        if countTime.second < 60{
-
-            countTime.second += 1
-
-          }
-        
-        //60秒に到達したら,秒(s)をリセット, 分(m)をプラス1
-        if countTime.second == 60 {
-              print("!!!!!!!!!!!")
-            countTime.second = 0
-            countTime.minitue += 1
-            //sound()
-
-          }
-
-        print("\(countTime.minitue): \(countTime.second)")
-        timeLabel.text = "\(countTime.minitue):\(countTime.second)"
-        
-        
-        checkRingBell(numberOfRing: 1, bellobject: b)
-        checkRingBell(numberOfRing: 2, bellobject: b)
-        checkRingBell(numberOfRing: 3, bellobject: b)
+        if timerFlag == 1 {
+            print("stop")
+            
+//            startButton.isEnabled = true
+//            stopButton.isEnabled = false
+            
+            //タイマーオブジェクトを破棄
+            self.timer?.invalidate()
+            timerFlag = 0
+        }
     }
     
     //設定した時間に達したらベルを鳴らす
-    func checkRingBell(numberOfRing:Int, bellobject:Bell){
+    func ringTheBell(numberOfRing:Int, bellobject:Bell){
         
-        if countTime.minitue == bellobject.bellConfigueDict[numberOfRing]!.minitue && countTime.second == bellobject.bellConfigueDict[numberOfRing]!.second{
+        let min = Int(bellobject.bellConfigueDict[String(numberOfRing)]!.components(separatedBy: ":")[0])
+        let sec = Int(bellobject.bellConfigueDict[String(numberOfRing)]!.components(separatedBy: ":")[1])
+        
+        if countTime.minitue == min && countTime.second == sec {
             
             print("bellが\(numberOfRing)回鳴るよ！！")
             sound(numberOfRing: numberOfRing)
@@ -241,22 +231,23 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
     
     
     //セット画面から戻った時に呼ばれるdelegateメソッド
-    func setTimerConfigue(numberOfRing:Int, Value:TimeCount){
+    func setTimerConfigue(numberOfRing:Int, Value:String){
         print("setTimerConfigue!!!")
-        print(numberOfRing, Value.minitue, Value.second)
+//        print(numberOfRing, Value.minitue, Value.second)
+        print(numberOfRing, Value)
         
         switch numberOfRing {
         case 1:
-            setTime1Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
-            Time1 = Value
+//            setTime1Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
+            setTime1Button.setTitle(Value, for: .normal)
             bell.setConfifueDict(numberOfRing: 1, Value: Value)
         case 2:
-            setTime2Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
-            Time2 = Value
+//            setTime2Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
+            setTime2Button.setTitle(Value, for: .normal)
             bell.setConfifueDict(numberOfRing: 2, Value: Value)
         case 3:
-            setTime3Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
-            Time3 = Value
+//            setTime3Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
+            setTime3Button.setTitle(Value, for: .normal)
             bell.setConfifueDict(numberOfRing: 3, Value: Value)
         default:
             print("KeyError")
@@ -264,9 +255,39 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         }
         
         print("bell")
-        print(bell.bellConfigueDict[1]!.minitue, bell.bellConfigueDict[1]!.second)
+        //print(bell.bellConfigueDict[1]!.minitue, bell.bellConfigueDict[1]!.second)
         
         
+    }
+    
+    //タイマー更新(1秒ごと)
+    @objc func updatePer1Second(_ sender: Timer){
+        let b = sender.userInfo as! Bell
+        //print(b.bellConfigueDict[1]!.minitue, b.bellConfigueDict[1]!.second)
+        
+        //60秒以内ならカウント
+        if countTime.second < 60{
+
+            countTime.second += 1
+
+          }
+        
+        //60秒に到達したら,秒(s)をリセット, 分(m)をプラス1
+        if countTime.second == 60 {
+              print("!!!!!!!!!!!")
+            countTime.second = 0
+            countTime.minitue += 1
+            //sound()
+
+          }
+
+        print("\(countTime.minitue): \(countTime.second)")
+        timeLabel.text = "\(countTime.minitue):\(countTime.second)"
+        
+        
+        ringTheBell(numberOfRing: 1, bellobject: b)
+        ringTheBell(numberOfRing: 2, bellobject: b)
+        ringTheBell(numberOfRing: 3, bellobject: b)
     }
     
     //タイマー設定画面に遷移
@@ -275,9 +296,40 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         let setTimeVC = storyboard?.instantiateViewController(withIdentifier: "setTime")  as! SetTimerViewController
         setTimeVC.delegate = self
         setTimeVC.numberOfRing = numberOfRing
-        //画面遷移
-        navigationController?.pushViewController(setTimeVC, animated: true)
         
+        //画面遷移
+        performSegue(withIdentifier: "setTime", sender: nil)
+        //navigationController?.pushViewController(setTimeVC, animated: true)
+        
+    }
+    
+    @objc func setTime1(){
+        
+        print("set1")
+        goTimer(numberOfRing:1)
+        //タイマーオブジェクトを破棄
+        self.timer?.invalidate()
+        timerFlag = 0
+        
+    }
+    
+    @objc func setTime2(){
+        
+        print("set2")
+        goTimer(numberOfRing:2)
+        //タイマーオブジェクトを破棄
+        self.timer?.invalidate()
+        timerFlag = 0
+        
+    }
+    
+    @objc func setTime3(){
+        
+        print("set3")
+        goTimer(numberOfRing:3)
+        //タイマーオブジェクトを破棄
+        self.timer?.invalidate()
+        timerFlag = 0
     }
 
 }
