@@ -78,12 +78,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    //試し
     @IBAction func bell(_ sender: Any) {
 
         //var b = Bell(bellDict: ["1": 1])
         
         
-       // soundFile.playSound(filename: "bellSound", extensionName: "mp3", numberOfLoops: 1)
+       soundFile.playSound(filename: "bellSound", extensionName: "mp3", numberOfLoops: 0)
 
     }
     

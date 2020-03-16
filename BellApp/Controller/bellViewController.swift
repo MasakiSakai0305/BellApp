@@ -326,6 +326,7 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
         stopButton.removeFromSuperview()
         self.view.addSubview(startStopButton)
         
+        
         countTime.second = 0
         countTime.minitue = 0
         

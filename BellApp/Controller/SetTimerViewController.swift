@@ -124,34 +124,6 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
         
     }
     
-//    //前の画面に戻るとき,textviewの中身をメモに格納
-//    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-//        print(viewController)
-//        print("navigationController from setTimer\n")
-//
-//        //前の画面に戻るとき
-//        if viewController is addBellViewController {
-//            print("setTime画面から前の画面に戻るよ!")
-//
-//            print(tc.minitue, tc.second)
-//            let timeString = String(tc.minitue) + String(tc.second)
-//
-//            //このタイミングでdelegateメソッドを使う
-//            delegate?.setTimerConfigue(numberOfRing:numberOfRing, Value:timeString)
-//
-//        }
-//    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        print("setTimerから戻るよ!! viewWillDisappear")
-        
-        print(tc.minitue, tc.second)
-        let timeString = String(tc.minitue) + ":" + String(tc.second)
-
-        //このタイミングでdelegateメソッドを使う
-        //delegate?.setTimerConfigue(numberOfRing:numberOfRing, Value:timeString)
-        
-    }
     
     //時間設定, 画面遷移
     @IBAction func doneAction(_ sender: Any) {
