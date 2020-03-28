@@ -18,6 +18,8 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
     
     var delegate:saveBellProtocol?
     
+    var numberOfRing = Int()
+    
     //ベルがなる時間を持つオブジェクト
     var bell = Bell()
     
@@ -312,10 +314,10 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
     
     //タイマー設定画面に遷移
     func goTimer(numberOfRing:Int){
-        
-        let setTimeVC = storyboard?.instantiateViewController(withIdentifier: "setTime")  as! SetTimerViewController
-        setTimeVC.delegate = self
-        setTimeVC.numberOfRing = numberOfRing
+//        print(numberOfRing)
+//        let setTimeVC = storyboard?.instantiateViewController(withIdentifier: "setTime")  as! SetTimerViewController
+//        setTimeVC.delegate = self
+//        setTimeVC.numberOfRing = numberOfRing
         
         //画面遷移
         performSegue(withIdentifier: "setTime", sender: nil)
@@ -323,9 +325,20 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare for segue")
+        let setTimeVC = segue.destination as! SetTimerViewController
+        
+        setTimeVC.delegate = self
+        setTimeVC.numberOfRing = numberOfRing
+
+        
+    }
+    
     @objc func setTime1(){
         
         print("set1")
+        numberOfRing = 1
         goTimer(numberOfRing:1)
         //タイマーオブジェクトを破棄
         self.timer?.invalidate()
@@ -336,6 +349,7 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
     @objc func setTime2(){
         
         print("set2")
+        numberOfRing = 2
         goTimer(numberOfRing:2)
         //タイマーオブジェクトを破棄
         self.timer?.invalidate()
@@ -346,6 +360,7 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
     @objc func setTime3(){
         
         print("set3")
+        numberOfRing = 3
         goTimer(numberOfRing:3)
         //タイマーオブジェクトを破棄
         self.timer?.invalidate()
