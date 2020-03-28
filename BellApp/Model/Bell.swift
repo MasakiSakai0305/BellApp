@@ -34,7 +34,7 @@ class Bell{
     }
     
     func setConfifueDict(numberOfRing:Int, Value:String){
-        
+        print("--setConfifueDict--", Value)
         bellConfigueDict[String(numberOfRing)] = Value
         
     }

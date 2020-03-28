@@ -271,14 +271,17 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         switch numberOfRing {
         case 1:
 //            setTime1Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
+            //modifyZero(timeValue:Value, buttonNum:1)
             setTime1Button.setTitle(Value, for: .normal)
             bell.setConfifueDict(numberOfRing: 1, Value: Value)
         case 2:
 //            setTime2Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
+            //modifyZero(timeValue:Value, buttonNum:2)
             setTime2Button.setTitle(Value, for: .normal)
             bell.setConfifueDict(numberOfRing: 2, Value: Value)
         case 3:
 //            setTime3Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
+            //modifyZero(timeValue:Value, buttonNum:3)
             setTime3Button.setTitle(Value, for: .normal)
             bell.setConfifueDict(numberOfRing: 3, Value: Value)
         default:

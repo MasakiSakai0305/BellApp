@@ -127,12 +127,20 @@ class SetTimerViewController: UIViewController, UINavigationControllerDelegate, 
     
     //時間設定, 画面遷移
     @IBAction func doneAction(_ sender: Any) {
-        
         print("setTimerから戻るよ!! from doneAction")
         
+        var timeString:String!
+        
         print(tc.minitue, tc.second)
-        let timeString = String(tc.minitue) + ":" + String(tc.second)
-
+        
+        //秒が0の時, "X:0"となるため, "X:00"と表示させる
+        if tc.second == 0{
+            timeString = String(tc.minitue) + ":" + "00"
+        } else {
+            timeString = String(tc.minitue) + ":" + String(tc.second)
+        }
+        
+        
         //このタイミングでdelegateメソッドを使う
         delegate?.setTimerConfigue(numberOfRing:numberOfRing, Value:timeString)
         

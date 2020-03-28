@@ -220,11 +220,13 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
             }
             
             //bellDictArray[bellNumber] = bell.bellConfigueDict
+            print(bellDict)
             UserDefaults.standard.set(bellDict, forKey: "bellDict\(bellNumber)")
             delegate?.updateBellTime()
             
         }
     }
+    
     
     //セット画面から戻った時に呼ばれるdelegateメソッド
     func setTimerConfigue(numberOfRing:Int, Value:String){
@@ -233,26 +235,27 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
         
         switch numberOfRing {
         case 1:
-    //            setTime1Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
+//            setTime1Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
             setTime1Button.setTitle(Value, for: .normal)
             bell.setConfifueDict(numberOfRing: 1, Value: Value)
-            bellDict["1"] = Value
+            bellDict["1"] = bell.bellConfigueDict["1"]
         case 2:
-    //            setTime2Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
+//            setTime2Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
             setTime2Button.setTitle(Value, for: .normal)
             bell.setConfifueDict(numberOfRing: 2, Value: Value)
-            bellDict["2"] = Value
+            bellDict["2"] = bell.bellConfigueDict["2"]
         case 3:
-    //            setTime3Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
+//            setTime3Button.setTitle("\(Value.minitue):\(Value.second)", for: .normal)
             setTime3Button.setTitle(Value, for: .normal)
             bell.setConfifueDict(numberOfRing: 3, Value: Value)
-            bellDict["3"] = Value
+            bellDict["3"] = bell.bellConfigueDict["3"]
         default:
             print("KeyError")
             print(numberOfRing)
         }
         
-        print("bell")
+        print("bell", bellDict)
+        //bellDict = bell.bellConfigueDict
         //print(bell.bellConfigueDict[1]!.minitue, bell.bellConfigueDict[1]!.second)
         
         
@@ -426,5 +429,43 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
         self.timer?.invalidate()
         timerFlag = 0
     }
+    
+    
 
 }
+
+//    //秒が0の時, "X:0"となるため, "X:00"と表示させる関数
+//    func modifyZero(timeValue:String, buttonNum:Int){
+//        print("--modifyZero--")
+//        let min = timeValue.components(separatedBy: ":")[0]
+//        let sec = timeValue.components(separatedBy: ":")[1]
+//
+//        if sec == "0"{
+//            print("sec == 0")
+//
+//            switch buttonNum{
+//            case 1:
+//                setTime1Button.setTitle("\(min):00", for: .normal)
+//            case 2:
+//                setTime2Button.setTitle("\(min):00", for: .normal)
+//            case 3:
+//                setTime3Button.setTitle("\(min):00", for: .normal)
+//            default:
+//                print("error")
+//            }
+//
+//        } else {
+//
+//            switch buttonNum{
+//            case 1:
+//                setTime1Button.setTitle(timeValue, for: .normal)
+//            case 2:
+//                setTime2Button.setTitle(timeValue, for: .normal)
+//            case 3:
+//                setTime3Button.setTitle(timeValue, for: .normal)
+//            default:
+//                print("error")
+//            }
+//        }
+//
+//    }
