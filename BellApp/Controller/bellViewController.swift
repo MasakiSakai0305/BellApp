@@ -262,11 +262,11 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
     }
     
     //設定した時間に達したらベルを鳴らす
-    func ringTheBell(numberOfRing:Int, bellobject:Bell){
+    func ringTheBell(numberOfRing:Int, bellobject:Dictionary<String, String>){
         
-        let min = Int(bellobject.bellConfigueDict[String(numberOfRing)]!.components(separatedBy: ":")[0])
-        let sec = Int(bellobject.bellConfigueDict[String(numberOfRing)]!.components(separatedBy: ":")[1])
-        
+        let min = Int(bellobject[String(numberOfRing)]!.components(separatedBy: ":")[0])
+        let sec = Int(bellobject[String(numberOfRing)]!.components(separatedBy: ":")[1])
+        print(countTime.second, sec)
         if countTime.minitue == min && countTime.second == sec {
 
             print("bellが\(numberOfRing)回鳴るよ！！")
@@ -277,7 +277,7 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
     
     
     func sound(numberOfRing:Int){
-        
+        print("--sound--")
         if numberOfRing == 1{
             soundFile.playSound(filename: "bellSound", extensionName: "mp3", numberOfLoops: numberOfRing - 1)
         
@@ -289,6 +289,7 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
     
     }
     
+
     //タイマー更新(1秒ごと)
     @objc func updatePer1Second(_ sender: Timer){
         let b = sender.userInfo as! Bell
@@ -314,9 +315,9 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
         timeLabel.text = "\(countTime.minitue):\(countTime.second)"
         
         
-        ringTheBell(numberOfRing: 1, bellobject: b)
-        ringTheBell(numberOfRing: 2, bellobject: b)
-        ringTheBell(numberOfRing: 3, bellobject: b)
+        ringTheBell(numberOfRing: 1, bellobject: bellDict)
+        ringTheBell(numberOfRing: 2, bellobject: bellDict)
+        ringTheBell(numberOfRing: 3, bellobject: bellDict)
     }
     
     

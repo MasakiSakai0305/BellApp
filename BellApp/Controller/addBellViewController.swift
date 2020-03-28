@@ -239,7 +239,7 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         
         let min = Int(bellobject.bellConfigueDict[String(numberOfRing)]!.components(separatedBy: ":")[0])
         let sec = Int(bellobject.bellConfigueDict[String(numberOfRing)]!.components(separatedBy: ":")[1])
-        
+//        print(countTime.second, sec)
         if countTime.minitue == min && countTime.second == sec {
             
             print("bellが\(numberOfRing)回鳴るよ！！")
@@ -249,7 +249,7 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
     }
     
     func sound(numberOfRing:Int){
-        
+        print("--sound--")
         if numberOfRing == 1{
             soundFile.playSound(filename: "bellSound", extensionName: "mp3", numberOfLoops: numberOfRing - 1)
         
