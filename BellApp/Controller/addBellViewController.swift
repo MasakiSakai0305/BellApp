@@ -32,6 +32,7 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
     
     //スタート/ストップボタン, リセットボタン
     let startStopButton = UIButton()
+    let stopButton = UIButton()
     let resetButton = UIButton()
     
     //ボタンに使う画像
@@ -95,12 +96,15 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         //ボタン:位置・大きさ設定, 画像をセット
         startStopButton.frame = CGRect(x: view.frame.size.width/7.2, y: view.frame.size.height/1.15 , width: 80, height: 80)
         startStopButton.setImage(startImage, for: .normal)
+        stopButton.frame = CGRect(x: view.frame.size.width/7.2, y: view.frame.size.height/1.15 , width: 80, height: 80)
+        stopButton.setImage(stopImage, for: .normal)
         resetButton.frame = CGRect(x: view.frame.size.width/1.5, y: view.frame.size.height/1.15, width: 80, height: 80)
         resetButton.setImage(resetImage, for: .normal)
         
         //スタート・ストップボタンアクション定義
         startStopButton.addTarget(self, action: #selector(start), for: .touchUpInside)
-        startStopButton.addTarget(self, action: #selector(stop), for: .touchUpInside)
+        //startStopButton.addTarget(self, action: #selector(stop), for: .touchUpInside)
+        stopButton.addTarget(self, action: #selector(stop), for: .touchUpInside)
         resetButton.addTarget(self, action: #selector(reset), for: .touchUpInside)
         
         //ベル画像:位置・大きさ設定, 画像をセット
@@ -152,9 +156,6 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         self.view.addSubview(setTime1Button)
         self.view.addSubview(setTime2Button)
         self.view.addSubview(setTime3Button)
-        
-       
-    
     }
     
     //前の画面に戻るとき,textviewの中身をメモに格納
@@ -164,6 +165,11 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         //前の画面に戻るとき
         if viewController is ViewController {
             print("addbellから前の画面に戻るよ\n")
+            
+            //タイマーを止める
+            self.timer?.invalidate()
+            timerFlag = 0
+            
             //bellDictArray.append(bell.bellConfigueDict)
             //bellArray.append(bell)
             UserDefaults.standard.set(bell.bellConfigueDict, forKey: "bellDict\(bellNum)")
@@ -177,7 +183,7 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
     }
 
     
-    
+        
     @objc func start(time:TimeCount){
         
         if timerFlag == 0{
@@ -186,14 +192,13 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
 //            startButton.isEnabled = false
 //            stopButton.isEnabled = true
             
-            //設定した時間になったらベルを鳴らすために, userInfoで毎回bellを渡している
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePer1Second), userInfo: bell, repeats: true)
             timerFlag = 1
-            
-            startStopButton.setImage(stopImage, for: .normal)
+            //startStopButton.setImage(stopImage, for: .normal)
+            startStopButton.removeFromSuperview()
+            self.view.addSubview(stopButton)
         }
     }
-    
     
     @objc func stop(){
         
@@ -206,8 +211,13 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
             //タイマーオブジェクトを破棄
             self.timer?.invalidate()
             timerFlag = 0
+            //startStopButton.setImage(startImage, for: .normal)
+            stopButton.removeFromSuperview()
+            self.view.addSubview(startStopButton)
+            
         }
     }
+
     
     @objc func reset(){
         

@@ -164,8 +164,6 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
             self.view.addSubview(setTime1Button)
             self.view.addSubview(setTime2Button)
             self.view.addSubview(setTime3Button)
-        
-
     }
     
     //ベル削除ボタン
@@ -201,6 +199,7 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
         present(alertController, animated: true)
     }
     
+    
     //前の画面に戻るとき,textviewの中身をメモに格納
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         print("--bellVC--")
@@ -208,6 +207,10 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
         //前の画面に戻るとき
         if viewController is ViewController {
             print("bellVCから戻るよ")
+            
+            //タイマーを止める
+            self.timer?.invalidate()
+            timerFlag = 0
             
             //中身を空にする
             if isDelete == true{
