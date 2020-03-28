@@ -9,10 +9,14 @@
 import UIKit
 
 extension UserDefaults {
-       static func contains(_ key: String) -> Bool {
+    static func contains(_ key: String) -> Bool {
            return UserDefaults.standard.object(forKey: key) != nil
-       }
-   }
+    }
+    
+    func removeAll() {
+        dictionaryRepresentation().forEach { removeObject(forKey: $0.key) }
+    }
+}
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, saveBellProtocol{
     
@@ -63,6 +67,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    //中身がない時間設定のセルを消す
+    func removeEmptyBell(){
+        
+        print("--removeEmptyBell--")
+        let bellCount = UserDefaults.standard.object(forKey: "bellDictCount") as! Int
+    
+        var notEmptyMemoNumber = [Dictionary<String, String>]()
+        
+        for i in 0 ..< bellCount{
+            
+            let bell = UserDefaults.standard.object(forKey: "bellDict\(i)") as! Dictionary<String, String>
+            
+            //時間が１つでもセットされていれば中身があるとみなし削除しない
+            if bell["1"] != "0:00" || bell["2"] != "0:00" || bell["3"] != "0:00"{
+                print("中身があるbellDict発見", i)
+                notEmptyMemoNumber.append(bell)
+            }
+        }
+        
+        //前削除
+        UserDefaults.standard.removeAll()
+        
+        UserDefaults.standard.set(notEmptyMemoNumber.count, forKey: "bellDictCount")
+
+        for i in 0..<notEmptyMemoNumber.count{
+            //UserDefaults.standard.removeObject(forKey: "bellDict\(i)")
+            UserDefaults.standard.set(notEmptyMemoNumber[i], forKey: "bellDict\(i)")
+            
+
+            }
+        print("--removeEmptyBell--")
+    }
+    
+    
+    
+    
     
     
     //追加ボタン
@@ -95,7 +135,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //let count = UserDefaults.standard.object(forKey: "bellDictCount") as! Int
         print(UserDefaults.contains("bellDictCount"))
         if UserDefaults.contains("bellDictCount") == true {
-        
+            
+            removeEmptyBell()
             let count = UserDefaults.standard.object(forKey: "bellDictCount") as! Int
             
             //セルの数が1以上あった時
@@ -124,7 +165,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //セルの構成
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cellForRowAt")
+        print("cellForRowAt:", indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
         
         //セルのハイライトについて
@@ -173,8 +214,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    //高さを決める
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.frame.size.height/7
+    }
 
     
+    //delegateメソッド
     func updateBellTime() {
         print("updateBellTime")
         tableview.reloadData()
