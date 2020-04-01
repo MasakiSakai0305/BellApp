@@ -166,6 +166,12 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
             self.view.addSubview(setTime3Button)
     }
     
+    //スリープしないようにする
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      UIApplication.shared.isIdleTimerDisabled = true  // この行
+    }
+    
     //ベル削除ボタン
     @objc func trashBarButtonTapped(_ sender: UIBarButtonItem) {
         print("trashボタンが押された!")
@@ -266,7 +272,7 @@ class bellViewController: UIViewController, UINavigationControllerDelegate, setT
         
         let min = Int(bellobject[String(numberOfRing)]!.components(separatedBy: ":")[0])
         let sec = Int(bellobject[String(numberOfRing)]!.components(separatedBy: ":")[1])
-        print(countTime.second, sec)
+        //print(countTime.second, sec)
         if countTime.minitue == min && countTime.second == sec {
 
             print("bellが\(numberOfRing)回鳴るよ！！")

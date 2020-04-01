@@ -158,6 +158,12 @@ class addBellViewController: UIViewController, UINavigationControllerDelegate, s
         self.view.addSubview(setTime3Button)
     }
     
+    //スリープしないようにする
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      UIApplication.shared.isIdleTimerDisabled = true  // この行
+    }
+    
     //前の画面に戻るとき,textviewの中身をメモに格納
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         print("navigationController from addbell")
